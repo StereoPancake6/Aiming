@@ -5,7 +5,7 @@
 ]]
 
 -- // Dependencies
-local Aiming = loadstring(game:HttpGet("https://raw.githubusercontent.com/StereoPancake6/choobian/main/module.lua"))()
+local Aiming = loadstring(game:HttpGet("https://raw.githubusercontent.com/StereoPancake6/Aiming/main/Module.lua"))()
 
 -- // Disable Team Check
 local AimingIgnored = Aiming.Ignored
