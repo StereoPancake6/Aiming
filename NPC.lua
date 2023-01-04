@@ -103,8 +103,8 @@ end
 
 -- // Create circle
 local circle = AimingNPCSettings.FOVSettings.Circle
-circle.Transparency = 1
-circle.Thickness = 2
+circle.Transparency = 0.2
+circle.Thickness = 0.8
 circle.Color = AimingNPCSettings.FOVSettings.Colour
 circle.Filled = false
 
