@@ -64,7 +64,7 @@ local AimingSettings = {
         Visible = true,
         Type = "Static",
         Scale = 60,
-        Sides = 12,
+        Sides = 21,
         Colour = Color3fromRGB(231, 84, 128),
         DynamicFOVConstant = 25
     },
@@ -74,7 +74,7 @@ local AimingSettings = {
         Enabled = true,
         Visible = true,
         Scale = 10,
-        Sides = 30,
+        Sides = 5,
         Colour = Color3fromRGB(83, 31, 46),
     },
 
@@ -179,8 +179,8 @@ end
 
 -- // Create circle
 local circle = AimingSettings.FOVSettings.Circle
-circle.Transparency = 1
-circle.Thickness = 2
+circle.Transparency = 0.2
+circle.Thickness = 0.8
 circle.Color = AimingSettings.FOVSettings.Colour
 circle.Filled = false
 
@@ -227,8 +227,8 @@ end
 
 -- // Update
 local deadzonecircle = AimingSettings.DeadzoneFOVSettings.Circle
-circle.Transparency = 1
-circle.Thickness = 2
+circle.Transparency = 0.2
+circle.Thickness = 0.8
 circle.Color = AimingSettings.DeadzoneFOVSettings.Colour
 circle.Filled = false
 function Aiming.UpdateDeadzoneFOV()
