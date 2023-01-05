@@ -64,7 +64,7 @@ local AimingSettings = {
         Visible = true,
         Type = "Static",
         Scale = 60,
-        Sides = 21,
+        Sides = 12,
         Colour = Color3fromRGB(231, 84, 128),
         DynamicFOVConstant = 25
     },
@@ -73,11 +73,9 @@ local AimingSettings = {
         Circle = Drawingnew("Circle"),
         Enabled = true,
         Visible = true,
-        Type = "Static",
         Scale = 10,
-        Sides = 12,
-        Colour = Color3fromRGB(231, 84, 128),
-        DynamicFOVConstant = 25
+        Sides = 30,
+        Colour = Color3fromRGB(83, 31, 46),
     },
 
     TracerSettings = {
@@ -181,8 +179,8 @@ end
 
 -- // Create circle
 local circle = AimingSettings.FOVSettings.Circle
-circle.Transparency = 0.2
-circle.Thickness = 0.8
+circle.Transparency = 1
+circle.Thickness = 2
 circle.Color = AimingSettings.FOVSettings.Colour
 circle.Filled = false
 
@@ -212,12 +210,11 @@ function Aiming.UpdateFOV()
         end
 
         -- // Grab which part we are going to use
-        local TargetPart = AimingSettings.TargetPart
-        local Part = typeof(TargetPart) == "table" and TargetPart[1] or TargetPart
-        local PartInstance = Aiming.Utilities.Character(LocalPlayer)[Part]
+        local TargetPart = Aiming.Selected.Part
+        local PartInstance = Aiming.Utilities.Character(LocalPlayer)[TargetPart.Name]
 
         -- // Calculate distance, set
-        local Distance = (PartInstance.Position - Aiming.Selected.Part.Position).Magnitude
+        local Distance = (PartInstance.Position - TargetPart.Position).Magnitude
         circle.Radius = math.round((Settings.DynamicFOVConstant / Distance) * 1000)
     else
         circle.Radius = (Settings.Scale * 3)
@@ -229,8 +226,8 @@ end
 
 -- // Update
 local deadzonecircle = AimingSettings.DeadzoneFOVSettings.Circle
-circle.Transparency = 0.2
-circle.Thickness = 0.8
+circle.Transparency = 1
+circle.Thickness = 2
 circle.Color = AimingSettings.DeadzoneFOVSettings.Colour
 circle.Filled = false
 function Aiming.UpdateDeadzoneFOV()
@@ -392,6 +389,7 @@ do
             if (Result) then
                 -- // Vars
                 local PartHit = Result.Instance
+                print(PartHit:GetFullName())
                 local Visible = PartHit == Part or IsAncestorOf(PartAncestor, PartHit)
 
                 -- // Return
