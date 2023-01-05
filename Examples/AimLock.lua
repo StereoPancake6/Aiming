@@ -1,5 +1,5 @@
 -- // Dependencies
-local Aiming = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Aiming/main/Load.lua"))()("Module")
+local Aiming = loadstring(game:HttpGet("https://raw.githubusercontent.com/StereoPancake6/Aiming/main/Load.lua"))()("Module")
 local AimingChecks = Aiming.Checks
 local AimingSelected = Aiming.Selected
 local AimingSettingsIgnored = Aiming.Settings.Ignored
@@ -13,10 +13,10 @@ local RunService = game:GetService("RunService")
 -- // Vars
 Aiming.AimLock = {
     Enabled = true,
-    FocusMode = false, -- // Stays locked on to that player only. If true then uses the aim lock keybind, if a input type is entered, then that is used
+    FocusMode = true, -- // Stays locked on to that player only. If true then uses the aim lock keybind, if a input type is entered, then that is used
     CurrentlyFocused = nil,
     ToggleBind = false, -- // true = Toggle, false = Hold (to enable)
-    Keybind = Enum.UserInputType.MouseButton2, -- // You can also have Enum.KeyCode.E, etc.
+    Keybind = Enum.KeyCode.E, -- // You can also have Enum.KeyCode.E, etc.
 }
 local IsToggled = false
 local Settings = Aiming.AimLock
