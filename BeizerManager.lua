@@ -229,7 +229,7 @@ do
         self.DrawPathFunc = BeizerManager.DrawPathFunc
     end
 end
-
+    
 -- // Return
 -- getgenv().BeizerManager = BeizerManager
 return BeizerManager
